@@ -1,0 +1,9 @@
+var taskStep = $('.task-input').length;
+var taskInput = '<br /><input type="text" name="check_list_definition[task_definitions_attributes][' +
+  taskStep + '][text]" id="check_list_definition_task_definitions_attributes_' + 
+  taskStep + '_text" class="task-input">' +
+  '<input type="hidden" value="' + taskStep +
+  '" name="check_list_definition[task_definitions_attributes][' + taskStep +
+  '][step]" id="check_list_definition_task_definitions_attributes_' + taskStep + '_step">';
+
+$('#addTaskBtn').before(taskInput);

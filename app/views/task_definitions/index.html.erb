@@ -1,0 +1,29 @@
+<h1>Listing task_definitions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Check list definition</th>
+      <th>Text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_definitions.each do |task_definition| %>
+      <tr>
+        <td><%= task_definition.check_list_definition %></td>
+        <td><%= task_definition.text %></td>
+        <td><%= link_to 'Show', task_definition %></td>
+        <td><%= link_to 'Edit', edit_task_definition_path(task_definition) %></td>
+        <td><%= link_to 'Destroy', task_definition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task definition', new_task_definition_path %>

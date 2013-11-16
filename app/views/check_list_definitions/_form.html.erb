@@ -19,7 +19,23 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+
+  <div>
+    Tasks
+    <div class="taskInputs">
+      <%= f.fields_for :task_definitions do |task_definition| %>
+        <%= render :partial => "task_definition_fields",
+          :locals => { :f => task_definition }
+        %>
+      <% end %>
+      <%= link_to "+", new_task_definition_path,
+        remote: true, class: "btn btn-default",
+        id: "addTaskBtn"
+      %>
+    </div>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'OK', class: "btn btn-primary" %>
   </div>
 <% end %>

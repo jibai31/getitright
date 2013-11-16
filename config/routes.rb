@@ -1,5 +1,7 @@
 Getitright::Application.routes.draw do
   
+  resources :task_definitions
+
   resources :check_list_definitions
 
   resource :check_list_definitions
