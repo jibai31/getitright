@@ -7,6 +7,12 @@ feature 'Visitor signs up' do
     user_should_be_signed_in
   end
 
+  scenario 'with valid email and password sets user name' do
+    sign_up_with 'valid@example.com', 'password'
+
+    user_should_be_signed_in_as 'valid'
+  end
+
   scenario 'with invalid email' do
     sign_up_with 'invalid_email', 'password'
 

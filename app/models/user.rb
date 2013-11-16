@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
   end
 
   def apply_omniauth(auth)
-    self.name = auth.info.name if name.blank?
     self.email = auth.info.email if email.blank?
+    self.name = auth.info.name if name.blank?
     self.avatar = auth.info.image if avatar.blank?
     authentications.build(
       provider: auth.provider,
@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     )
   end
  
+  def set_name_from_email
+    self.name = email.split("@")[0] if name.blank?
+  end
+
   def password_required?
     (authentications.empty? || !password.blank?) && super
   end
