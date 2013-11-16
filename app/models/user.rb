@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :omniauth_providers => [:google_oauth2, :facebook, :twitter]
 
   has_many :authentications
+  has_many :check_list_definitions
 
   def add_provider!(auth)
     authentications.create!(

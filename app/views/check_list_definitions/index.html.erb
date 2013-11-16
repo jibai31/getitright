@@ -1,7 +1,9 @@
 <h1>Check lists</h1>
 
 <div id="checkListDefinitions">
-  <%= render @check_list_definitions %>
+	<%= render @check_list_definitions %>
 </div>
 
-<%= link_to 'Create new check list', new_check_list_definition_path, class: "btn btn-primary" %>
+<% if user_signed_in? %>
+	<%= link_to 'Create new check list', new_check_list_definition_path, class: "btn btn-primary" %>
+<% end %>
