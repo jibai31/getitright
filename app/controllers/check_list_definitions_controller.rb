@@ -1,12 +1,9 @@
 class CheckListDefinitionsController < ApplicationController
-<<<<<<< HEAD
+
   before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy, :start]
+
   # GET /check_list_definitions
   # GET /check_list_definitions.json
-=======
-  before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy]
-
->>>>>>> 421c619fa07e2bb5bc7b700ef1062747b5c38f35
   def index
     if user_signed_in?
       @check_list_definitions = current_user.check_list_definitions
@@ -53,7 +50,6 @@ class CheckListDefinitionsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   # GET /check_list_definitions/1
   # GET /check_list_definitions/1.json
   def start
@@ -66,8 +62,6 @@ class CheckListDefinitionsController < ApplicationController
 
   # DELETE /check_list_definitions/1
   # DELETE /check_list_definitions/1.json
-=======
->>>>>>> 421c619fa07e2bb5bc7b700ef1062747b5c38f35
   def destroy
     @check_list_definition.destroy
     respond_to do |format|

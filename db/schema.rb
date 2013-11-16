@@ -34,28 +34,28 @@ ActiveRecord::Schema.define(version: 20131116200330) do
   add_index "check_list_definitions", ["name"], name: "index_check_list_definitions_on_name", using: :btree
   add_index "check_list_definitions", ["user_id"], name: "index_check_list_definitions_on_user_id", using: :btree
 
-<<<<<<< HEAD
+
   create_table "check_lists", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
     t.integer  "check_list_definition_id"
-=======
-  create_table "task_definitions", force: true do |t|
-    t.integer  "check_list_definition_id"
-    t.integer  "step"
-    t.string   "text"
->>>>>>> 421c619fa07e2bb5bc7b700ef1062747b5c38f35
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
   add_index "check_lists", ["check_list_definition_id"], name: "index_check_lists_on_check_list_definition_id", using: :btree
   add_index "check_lists", ["name"], name: "index_check_lists_on_name", using: :btree
   add_index "check_lists", ["user_id"], name: "index_check_lists_on_user_id", using: :btree
-=======
+
+  create_table "task_definitions", force: true do |t|
+    t.integer  "check_list_definition_id"
+    t.integer  "step"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   add_index "task_definitions", ["check_list_definition_id"], name: "index_task_definitions_on_check_list_definition_id", using: :btree
->>>>>>> 421c619fa07e2bb5bc7b700ef1062747b5c38f35
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
