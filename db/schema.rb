@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20131116200330) do
   add_index "check_list_definitions", ["name"], name: "index_check_list_definitions_on_name", using: :btree
   add_index "check_list_definitions", ["user_id"], name: "index_check_list_definitions_on_user_id", using: :btree
 
-
   create_table "check_lists", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
