@@ -1,6 +1,9 @@
 class CheckListDefinitionsController < ApplicationController
-  before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy, :start]
+
+  # GET /check_list_definitions
+  # GET /check_list_definitions.json
   def index
     if user_signed_in?
       @check_list_definitions = current_user.check_list_definitions
@@ -47,6 +50,18 @@ class CheckListDefinitionsController < ApplicationController
     end
   end
 
+  # GET /check_list_definitions/1
+  # GET /check_list_definitions/1.json
+  def start
+    @check_list = @check_list_definition.check_lists.create(user: current_user, name: @check_list_definition.name)
+    respond_to do |format|
+      format.html { redirect_to check_list_url(@check_list) }
+      format.json { head :no_content }
+    end
+  end
+
+  # DELETE /check_list_definitions/1
+  # DELETE /check_list_definitions/1.json
   def destroy
     @check_list_definition.destroy
     respond_to do |format|

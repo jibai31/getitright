@@ -11,6 +11,11 @@
     <%= link_to 'Destroy',
       check_list_definition, method: :delete, data: { confirm: 'Are you sure?' },
       class: "btn"
+    %> |
+    <%= link_to 'Start',
+      start_check_list_definitions_path(check_list_definition),
+      method: :post,
+      class: "btn"
     %>
   </p>
 </div>
