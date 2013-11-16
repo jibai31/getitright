@@ -1,18 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
   <%= @check_list_definition.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
+  <br/>
   <%= @check_list_definition.description %>
 </p>
 
 <p>
-  <strong>Tasks:</strong>
-  <ul>
+  <strong>Check List:</strong>
+  <ul class="list-unstyled">
     <% @check_list_definition.task_definitions.each do |task_definition| %>
       <li><%= task_definition.text %></li>
     <% end %>
