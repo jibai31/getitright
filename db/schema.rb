@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131116191958) do
+ActiveRecord::Schema.define(version: 20131116200330) do
 
   create_table "authentications", force: true do |t|
     t.integer "user_id"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20131116191958) do
 
   add_index "check_list_definitions", ["name"], name: "index_check_list_definitions_on_name", using: :btree
   add_index "check_list_definitions", ["user_id"], name: "index_check_list_definitions_on_user_id", using: :btree
+
+  create_table "check_lists", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "check_list_definition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "check_lists", ["check_list_definition_id"], name: "index_check_lists_on_check_list_definition_id", using: :btree
+  add_index "check_lists", ["name"], name: "index_check_lists_on_name", using: :btree
+  add_index "check_lists", ["user_id"], name: "index_check_lists_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

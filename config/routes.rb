@@ -1,5 +1,8 @@
 Getitright::Application.routes.draw do
   
+  resources :check_lists
+  post 'check_list_definitions/:id/start', to: 'check_list_definitions#start', as: :start_check_list_definitions   
+
   resources :check_list_definitions
 
   resource :check_list_definitions

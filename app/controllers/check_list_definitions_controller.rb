@@ -1,5 +1,5 @@
 class CheckListDefinitionsController < ApplicationController
-  before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy]
+  before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy, :start]
   # GET /check_list_definitions
   # GET /check_list_definitions.json
   def index
@@ -56,6 +56,16 @@ class CheckListDefinitionsController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @check_list_definition.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # GET /check_list_definitions/1
+  # GET /check_list_definitions/1.json
+  def start
+    @check_list = @check_list_definition.check_lists.create(user: current_user, name: @check_list_definition.name)
+    respond_to do |format|
+      format.html { redirect_to check_list_url(@check_list) }
+      format.json { head :no_content }
     end
   end
 
