@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @check_list_definition.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @check_list_definition.description %>
+</p>
+
+<%= link_to 'Edit', edit_check_list_definition_path(@check_list_definition) %> |
+<%= link_to 'Back', check_list_definitions_path %>

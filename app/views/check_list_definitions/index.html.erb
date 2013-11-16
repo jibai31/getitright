@@ -1,0 +1,29 @@
+<h1>Listing check_list_definitions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @check_list_definitions.each do |check_list_definition| %>
+      <tr>
+        <td><%= check_list_definition.name %></td>
+        <td><%= check_list_definition.description %></td>
+        <td><%= link_to 'Show', check_list_definition %></td>
+        <td><%= link_to 'Edit', edit_check_list_definition_path(check_list_definition) %></td>
+        <td><%= link_to 'Destroy', check_list_definition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Check list definition', new_check_list_definition_path %>
