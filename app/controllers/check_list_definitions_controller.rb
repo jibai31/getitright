@@ -1,10 +1,13 @@
 class CheckListDefinitionsController < ApplicationController
   before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy]
-
   # GET /check_list_definitions
   # GET /check_list_definitions.json
   def index
-    @check_list_definitions = CheckListDefinition.all
+    if user_signed_in?
+      @check_list_definitions = current_user.check_list_definitions
+    else
+      @check_list_definitions = CheckListDefinition.all
+    end
   end
 
   # GET /check_list_definitions/1
@@ -14,7 +17,11 @@ class CheckListDefinitionsController < ApplicationController
 
   # GET /check_list_definitions/new
   def new
-    @check_list_definition = CheckListDefinition.new
+    if user_signed_in?
+      @check_list_definition = current_user.check_list_definitions.build
+      @check_list_definition.user = current_user
+    end
+
   end
 
   # GET /check_list_definitions/1/edit
@@ -24,7 +31,8 @@ class CheckListDefinitionsController < ApplicationController
   # POST /check_list_definitions
   # POST /check_list_definitions.json
   def create
-    @check_list_definition = CheckListDefinition.new(check_list_definition_params)
+    @check_list_definition = current_user.check_list_definitions.build(check_list_definition_params)
+    @check_list_definition.user = current_user
 
     respond_to do |format|
       if @check_list_definition.save
@@ -62,13 +70,14 @@ class CheckListDefinitionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_check_list_definition
-      @check_list_definition = CheckListDefinition.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def check_list_definition_params
-      params.require(:check_list_definition).permit(:name, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_check_list_definition
+    @check_list_definition = CheckListDefinition.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def check_list_definition_params
+    params.require(:check_list_definition).permit(:user_id, :name, :description)
+  end
 end
