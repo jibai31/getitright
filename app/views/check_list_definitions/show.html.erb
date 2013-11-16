@@ -10,5 +10,14 @@
   <%= @check_list_definition.description %>
 </p>
 
+<p>
+  <strong>Tasks:</strong>
+  <ul>
+    <% @check_list_definition.task_definitions.each do |task_definition| %>
+      <li><%= task_definition.text %></li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_check_list_definition_path(@check_list_definition) %> |
 <%= link_to 'Back', check_list_definitions_path %>

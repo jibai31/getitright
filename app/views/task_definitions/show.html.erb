@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Check list definition:</strong>
+  <%= @task_definition.check_list_definition %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @task_definition.text %>
+</p>
+
+<%= link_to 'Edit', edit_task_definition_path(@task_definition) %> |
+<%= link_to 'Back', task_definitions_path %>

@@ -1,0 +1,25 @@
+<%= form_for(@task_definition) do |f| %>
+  <% if @task_definition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task_definition.errors.count, "error") %> prohibited this task_definition from being saved:</h2>
+
+      <ul>
+      <% @task_definition.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :check_list_definition %><br>
+    <%= f.text_field :check_list_definition %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br>
+    <%= f.text_field :text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

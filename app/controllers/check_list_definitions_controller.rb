@@ -1,7 +1,12 @@
 class CheckListDefinitionsController < ApplicationController
+<<<<<<< HEAD
   before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy, :start]
   # GET /check_list_definitions
   # GET /check_list_definitions.json
+=======
+  before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy]
+
+>>>>>>> 421c619fa07e2bb5bc7b700ef1062747b5c38f35
   def index
     if user_signed_in?
       @check_list_definitions = current_user.check_list_definitions
@@ -10,26 +15,17 @@ class CheckListDefinitionsController < ApplicationController
     end
   end
 
-  # GET /check_list_definitions/1
-  # GET /check_list_definitions/1.json
   def show
   end
 
-  # GET /check_list_definitions/new
   def new
-    if user_signed_in?
-      @check_list_definition = current_user.check_list_definitions.build
-      @check_list_definition.user = current_user
-    end
-
+    @check_list_definition = current_user.check_list_definitions.build
+    @check_list_definition.task_definitions.build
   end
 
-  # GET /check_list_definitions/1/edit
   def edit
   end
 
-  # POST /check_list_definitions
-  # POST /check_list_definitions.json
   def create
     @check_list_definition = current_user.check_list_definitions.build(check_list_definition_params)
     @check_list_definition.user = current_user
@@ -45,8 +41,6 @@ class CheckListDefinitionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /check_list_definitions/1
-  # PATCH/PUT /check_list_definitions/1.json
   def update
     respond_to do |format|
       if @check_list_definition.update(check_list_definition_params)
@@ -59,6 +53,7 @@ class CheckListDefinitionsController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   # GET /check_list_definitions/1
   # GET /check_list_definitions/1.json
   def start
@@ -71,6 +66,8 @@ class CheckListDefinitionsController < ApplicationController
 
   # DELETE /check_list_definitions/1
   # DELETE /check_list_definitions/1.json
+=======
+>>>>>>> 421c619fa07e2bb5bc7b700ef1062747b5c38f35
   def destroy
     @check_list_definition.destroy
     respond_to do |format|
@@ -88,6 +85,11 @@ class CheckListDefinitionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def check_list_definition_params
-    params.require(:check_list_definition).permit(:user_id, :name, :description)
+    params.require(:check_list_definition)
+          .permit(:user_id,
+                  :name,
+                  :description,
+                  task_definitions_attributes: [:id, :text, :step]
+                 )
   end
 end
