@@ -1,4 +1,5 @@
 class CheckListFactory
+  
   def create(check_list_definition,current_user)
     cl = current_user.check_lists.build
     cl.user = current_user
@@ -13,4 +14,5 @@ class CheckListFactory
     cl.save
     cl
   end
+  
 end

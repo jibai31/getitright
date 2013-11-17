@@ -15,6 +15,7 @@ class CheckListDefinitionsController < ApplicationController
   def index
     if user_signed_in?
       @check_list_definitions = current_user.check_list_definitions
+      @other_public_check_list_definitions = CheckListDefinition.where("user_id <> ?", current_user)
     else
       @check_list_definitions = CheckListDefinition.all
     end
@@ -61,10 +62,18 @@ class CheckListDefinitionsController < ApplicationController
   # GET /check_list_definitions/1
   # GET /check_list_definitions/1.json
   def start
-    @check_list = check_list_factory.create(@check_list_definition, current_user)
+    if user_signed_in?
+      @check_list = check_list_factory.create(@check_list_definition, current_user)
+      respond_to do |format|
+        format.html { redirect_to edit_check_list_url(@check_list) }
+        format.json { head :no_content }
+      end
+    else
     respond_to do |format|
-      format.html { redirect_to edit_check_list_url(@check_list) }
-      format.json { head :no_content }
+        format.html { redirect_to new_user_session_path }
+        format.json { head :no_content }
+      end
+
     end
   end
 
