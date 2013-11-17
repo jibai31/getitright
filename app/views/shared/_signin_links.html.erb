@@ -1,4 +1,4 @@
-<p><strong>Vous pouvez vous enregistrer via un de ces services :</strong></p>
+<p><strong>Sign in with one of those services:</strong></p>
 
 <%= link_to user_omniauth_authorize_path(:google_oauth2) do %>
   <%= image_tag('google_64.png', size: "64x64", alt: "Google") %>
@@ -14,7 +14,7 @@
 <% end %>
 <br />
 <br />
-<p><strong>Vous n'utilisez pas ses services ?</strong></p>
-<p><%= link_to 'Enregistrez-vous', new_user_registration_path %>
-ou <%= link_to 'connectez-vous', new_user_session_path %>
-avec un mot de passe.</p>
+<p><strong>You don't use those services?</strong></p>
+<p><%= link_to 'Sign up', new_user_registration_path %>
+or <%= link_to 'sign in', new_user_session_path %>
+with a password.</p>
