@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get it right</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Never make mistakes again. 17 (and counting) people just like you who have become superhuman. Today it’s your t... - "/>
+  <%= stylesheet_link_tag "home", media: "all", "data-turbolinks-track" => true %>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'layouts/navbar' %>
+  <div class="container">
+    <%= render 'layouts/flash' %>
+    <%= yield %>
+  </div>
+
+  <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+  <%= javascript_include_tag "plusone", "home" %>
+  <%= render 'layouts/home_scripts' %>
+  <%= render 'layouts/google_analytics' if Rails.env.production? %>
+</body>
+</html>
