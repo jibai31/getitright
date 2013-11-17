@@ -1,23 +1,21 @@
-<div class="col-6 col-sm-6 col-lg-4" id="checkListDefinitions">
-	<strong><%= link_to check_list_definition.name, check_list_definition %></strong>
-	<% unless check_list_definition.description.blank? %>
-	<br />
-	<%= check_list_definition.description %>
-	<% end %>
-	<p>
-		<% if user_signed_in? %>
-		<%= link_to 'Edit',
-		edit_check_list_definition_path(check_list_definition),
-		class: "btn" %> |
-		<%= link_to 'Destroy',
-		check_list_definition, method: :delete, data: { confirm: 'Are you sure?' },
-		class: "btn" %>
-		<%= link_to 'Start',
-		start_check_list_definitions_path(check_list_definition),
-		method: :post,
-		class: "btn" %>
-		<% else %>
-		<%= link_to "Start", '#', class: "btn", 'data-toggle' => "modal", 'data-target' => "#signinModal" %>
-		<% end %>
-	</p>
-</div>
+  <div class="col-6 col-sm-6 col-lg-4" id="checkListDefinitions">
+    <strong><%= link_to check_list_definition.name, check_list_definition %></strong>
+    <% if user_signed_in? %>
+      <button type="button" class="btn btn-default btn-xs">
+        <%= link_to "x", check_list_definition, method: :delete, data: { confirm: 'Are you sure?' }
+        %>
+      </button>
+    <% end %>
+    <% unless check_list_definition.description.blank? %>
+      <br /><%= check_list_definition.description %>
+    <% end %>
+    <p>
+    <%= link_to 'Start',
+    start_check_list_definitions_path(check_list_definition),
+    method: :post,
+    class: "btn" %>
+    <% else %>
+    <%= link_to "Start", '#', class: "btn", 'data-toggle' => "modal", 'data-target' => "#signinModal" %>
+    <% end %>
+    </p>
+  </div>
