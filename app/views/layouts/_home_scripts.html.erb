@@ -1,0 +1,59 @@
+<script type="text/javascript">
+var neo = { locale: 'fr' };
+$(function() {
+    $.datepicker.setDefaults($.datepicker.regional['fr']);
+});
+</script>
+<script type="text/javascript">
+$(function() {
+    // Dropdown UX
+    $('.navbar .nav li[data-hover="dropdown"]').on('hover', function(event) {
+        $(this).find('ul').toggle();
+    });
+    // Dropdown init
+    $('.navbar .nav li:hover ul').show();
+});
+</script>
+<script type="text/javascript">
+$(function() {
+    $('#contact-modal form')
+        .bind('submit', function(e) {
+            var $submit = $(this).find("input[type=submit]");
+            $submit.data("initial-text", $submit.val());
+            $submit.val($submit.data("loading-text")).attr('disabled', true);
+            $(this).find('.response-anchor').trigger("reset");
+        })
+        .bind('ajax:success', function(e, data, status, xhr) {
+            var $submit = $(this).find("input[type=submit]");
+            $submit.val($submit.data("initial-text")).removeAttr('disabled').hide();
+            $(this).find('.response-anchor').trigger("showSuccess", "Envoi réussi");
+            $(this).find("a").show();
+        })
+        .bind('ajax:error', function(e, xhr, status, error) {
+            var $submit = $(this).find("input[type=submit]");
+            $submit.val($submit.data("initial-text")).removeAttr('disabled');
+            $(this).find('.response-anchor').trigger("showErrors", $.parseJSON(xhr.responseText));
+        })
+        .bind('reinit', function() {
+            $(this).find('.response-anchor').trigger("reset");
+            $(this).find(".modal-body input, .modal-body textarea").val("");
+            $(this).find("a").hide();
+            $(this).find("input[type=submit]").show();
+            $(this).find('input[type=text]').first().focus();
+        });
+    $('#contact-modal').on('show', function () { $(this).find('form').trigger('reinit'); });
+    $('#contact-modal form a.new').bind('click', function() {
+        $(this).closest("form").trigger("reinit");
+        return false;
+    });
+    $('#contact-modal form a.end').bind('click', function() {
+        $(this).closest(".modal").modal('hide');
+        return false;
+    });
+});
+</script>
+<script type="text/javascript">
+$(function() {
+  $(".formatted-text a[href^=\"http://\"]:not([href*=\"http://www.igetitright.com\"])").attr('target','_blank');
+});
+</script>
