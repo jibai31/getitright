@@ -31,7 +31,7 @@
           </li>
         </ul>
       <% else %>
-        <li><%= link_to "S'enregistrer", '#', 'data-toggle' => "modal", 'data-target' => "#signinModal" %></li>
+        <li><%= link_to "Sign up", '#', 'data-toggle' => "modal", 'data-target' => "#signinModal" %></li>
       <% end %>
     </ul>
   </div>
@@ -45,7 +45,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="signinModalLabel">Enregistrez-vous</h4>
+          <h4 class="modal-title" id="signinModalLabel">Signup</h4>
         </div>
         <div class="modal-body">
           <%= render 'shared/signin_links' %>
