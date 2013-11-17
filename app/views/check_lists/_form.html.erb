@@ -1,29 +1,43 @@
 <%= form_for(@check_list) do |f| %>
-  <% if @check_list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@check_list.errors.count, "error") %> prohibited this check_list from being saved:</h2>
+<% if @check_list.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@check_list.errors.count, "error") %> prohibited this check_list from being saved:</h2>
 
-      <ul>
-      <% @check_list.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<ul>
+		<% @check_list.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :user %><br>
-    <%= f.text_field :user %>
-  </div>
-  <div class="field">
-    <%= f.label :check_list_definition %><br>
-    <%= f.text_field :check_list_definition %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="field">
+	<%= f.label "Check List Name" %>
+	<br>
+	<%= f.text_field :name, disabled: true %>
+</div>
+<div class="field">
+	<%= f.label "Check List Description" %>
+	<br>
+	<%= f.text_field :description %>
+</div>
+
+<div>
+	Tasks
+	<div class="taskInputs">
+		<ul>
+			<%= f.fields_for :tasks do |task| %>
+			<li>
+				<%= render :partial => "task_fields", :locals => { :f => task } %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+
+<div class="actions">
+	<%= f.submit %>
+</div>
 <% end %>

@@ -15,5 +15,11 @@
   <%= @check_list.check_list_definition %>
 </p>
 
+<p>
+  <strong>Check List:</strong>
+  <%= render 'form' %>
+</p>
+
+
 <%= link_to 'Edit', edit_check_list_path(@check_list) %> |
 <%= link_to 'Back', check_lists_path %>

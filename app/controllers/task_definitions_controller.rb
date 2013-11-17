@@ -69,6 +69,6 @@ class TaskDefinitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_definition_params
-      params.require(:task_definition).permit(:check_list_definition_id, :text)
+      params.require(:task_definition).permit(:check_list_definition_id, :text, :step)
     end
 end

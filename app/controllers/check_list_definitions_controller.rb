@@ -61,9 +61,9 @@ class CheckListDefinitionsController < ApplicationController
   # GET /check_list_definitions/1
   # GET /check_list_definitions/1.json
   def start
-    @check_list = check_list_factory.create(@check_list_definition)
+    @check_list = check_list_factory.create(@check_list_definition, current_user)
     respond_to do |format|
-      format.html { redirect_to check_list_url(@check_list) }
+      format.html { redirect_to edit_check_list_url(@check_list) }
       format.json { head :no_content }
     end
   end

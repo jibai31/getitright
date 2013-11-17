@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications
   has_many :check_list_definitions
+  has_many :check_lists
 
   def add_provider!(auth)
     authentications.create!(
