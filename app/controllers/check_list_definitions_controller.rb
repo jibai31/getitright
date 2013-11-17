@@ -1,6 +1,14 @@
 class CheckListDefinitionsController < ApplicationController
 
   before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy, :start]
+  
+  
+  def check_list_factory
+    unless @check_list_factory 
+      @check_list_factory = CheckListFactory.new
+    end
+    @check_list_factory
+  end 
 
   # GET /check_list_definitions
   # GET /check_list_definitions.json
@@ -53,7 +61,7 @@ class CheckListDefinitionsController < ApplicationController
   # GET /check_list_definitions/1
   # GET /check_list_definitions/1.json
   def start
-    @check_list = @check_list_definition.check_lists.create(user: current_user, name: @check_list_definition.name)
+    @check_list = check_list_factory.create(@check_list_definition)
     respond_to do |format|
       format.html { redirect_to check_list_url(@check_list) }
       format.json { head :no_content }
