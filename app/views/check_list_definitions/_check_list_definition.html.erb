@@ -1,10 +1,10 @@
   <div class="col-6 col-sm-6 col-lg-4" id="checkListDefinitions">
     <strong><%= link_to check_list_definition.name, check_list_definition %></strong>
     <% if user_signed_in? %>
-      <button type="button" class="btn btn-default btn-xs">
-        <%= link_to "x", check_list_definition, method: :delete, data: { confirm: 'Are you sure?' }
-        %>
-      </button>
+      <%= link_to "×", check_list_definition, method: :delete, 
+        class: "btn btn-default",
+        data: { confirm: 'Are you sure?' }
+      %>
     <% end %>
     <% unless check_list_definition.description.blank? %>
       <br /><%= check_list_definition.description %>
@@ -14,10 +14,10 @@
       <%= link_to 'Start',
         start_check_list_definitions_path(check_list_definition),
         method: :post,
-        class: "btn"
+        class: "btn btn-default"
       %>
     <% else %>
-      <%= link_to "Start", '#', class: "btn", 'data-toggle' => "modal", 'data-target' => "#signinModal" %>
+      <%= link_to "Start", '#', class: "btn btn-default", 'data-toggle' => "modal", 'data-target' => "#signinModal" %>
     <% end %>
     </p>
   </div>
