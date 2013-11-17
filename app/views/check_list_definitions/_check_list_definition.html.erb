@@ -1,11 +1,5 @@
   <div class="col-6 col-sm-6 col-lg-4" id="checkListDefinitions">
     <strong><%= link_to check_list_definition.name, check_list_definition %></strong>
-    <% if user_signed_in? %>
-      <%= link_to "×", check_list_definition, method: :delete, 
-        class: "btn btn-default",
-        data: { confirm: 'Are you sure?' }
-      %>
-    <% end %>
     <% unless check_list_definition.description.blank? %>
       <br /><%= check_list_definition.description %>
     <% end %>
