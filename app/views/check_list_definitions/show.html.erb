@@ -1,19 +1,31 @@
-<p id="notice"><%= notice %></p>
+<p id="notice">
+	<%= notice %>
+</p>
 
+<h1><%= @check_list_definition.name %></h1>
 <p>
-  <%= @check_list_definition.name %>
-  <br/>
-  <%= @check_list_definition.description %>
+	<%= @check_list_definition.description %>
 </p>
 
 <p>
-  <strong>Check List:</strong>
-  <ul class="list-unstyled">
-    <% @check_list_definition.task_definitions.each do |task_definition| %>
-      <li><%= task_definition.text %></li>
-    <% end %>
-  </ul>
+	<ul class="list-unstyled">
+		<% @check_list_definition.task_definitions.each do |task_definition| %>
+		<li>
+			<%= task_definition.text %>
+		</li>
+		<% end %>
+	</ul>
 </p>
+<div class="actions">
 
-<%= link_to 'Edit', edit_check_list_definition_path(@check_list_definition) %> |
-<%= link_to 'Back', check_list_definitions_path %>
+	<%= link_to 'Back', check_list_definitions_path, class: "btn btn-primary" %> |
+	<%= link_to 'Edit', edit_check_list_definition_path(@check_list_definition), class: "btn btn-primary" %> |
+	<% if user_signed_in? %>
+	<%= link_to 'Start',
+		start_check_list_definitions_path(check_list_definition),
+		method: :post,
+		class: "btn btn-default"%>
+	<% else %>
+		<%= link_to "Start", '#', class: "btn btn-default", 'data-toggle' => "modal", 'data-target' => "#signinModal" %>
+	<% end %>
+</div>
