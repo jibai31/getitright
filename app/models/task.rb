@@ -8,6 +8,6 @@ class Task < ActiveRecord::Base
   end
 
   def smart_text
-    "#{self.step}  #{self.task_definition.text}"
+    "#{self.task_definition.text}"
   end
 end
