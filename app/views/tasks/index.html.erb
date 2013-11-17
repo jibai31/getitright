@@ -1,0 +1,33 @@
+<h1>Listing tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Done</th>
+      <th>Task definition</th>
+      <th>Check list</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.step %></td>
+        <td><%= task.done %></td>
+        <td><%= task.task_definition %></td>
+        <td><%= task.check_list %></td>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>

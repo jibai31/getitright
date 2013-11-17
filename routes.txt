@@ -1,0 +1,59 @@
+                      Prefix Verb     URI Pattern                                 Controller#Action
+                       tasks GET      /tasks(.:format)                            tasks#index
+                             POST     /tasks(.:format)                            tasks#create
+                    new_task GET      /tasks/new(.:format)                        tasks#new
+                   edit_task GET      /tasks/:id/edit(.:format)                   tasks#edit
+                        task GET      /tasks/:id(.:format)                        tasks#show
+                             PATCH    /tasks/:id(.:format)                        tasks#update
+                             PUT      /tasks/:id(.:format)                        tasks#update
+                             DELETE   /tasks/:id(.:format)                        tasks#destroy
+                 check_lists GET      /check_lists(.:format)                      check_lists#index
+                             POST     /check_lists(.:format)                      check_lists#create
+              new_check_list GET      /check_lists/new(.:format)                  check_lists#new
+             edit_check_list GET      /check_lists/:id/edit(.:format)             check_lists#edit
+                  check_list GET      /check_lists/:id(.:format)                  check_lists#show
+                             PATCH    /check_lists/:id(.:format)                  check_lists#update
+                             PUT      /check_lists/:id(.:format)                  check_lists#update
+                             DELETE   /check_lists/:id(.:format)                  check_lists#destroy
+start_check_list_definitions POST     /check_list_definitions/:id/start(.:format) check_list_definitions#start
+            task_definitions GET      /task_definitions(.:format)                 task_definitions#index
+                             POST     /task_definitions(.:format)                 task_definitions#create
+         new_task_definition GET      /task_definitions/new(.:format)             task_definitions#new
+        edit_task_definition GET      /task_definitions/:id/edit(.:format)        task_definitions#edit
+             task_definition GET      /task_definitions/:id(.:format)             task_definitions#show
+                             PATCH    /task_definitions/:id(.:format)             task_definitions#update
+                             PUT      /task_definitions/:id(.:format)             task_definitions#update
+                             DELETE   /task_definitions/:id(.:format)             task_definitions#destroy
+      check_list_definitions GET      /check_list_definitions(.:format)           check_list_definitions#index
+                             POST     /check_list_definitions(.:format)           check_list_definitions#create
+   new_check_list_definition GET      /check_list_definitions/new(.:format)       check_list_definitions#new
+  edit_check_list_definition GET      /check_list_definitions/:id/edit(.:format)  check_list_definitions#edit
+       check_list_definition GET      /check_list_definitions/:id(.:format)       check_list_definitions#show
+                             PATCH    /check_list_definitions/:id(.:format)       check_list_definitions#update
+                             PUT      /check_list_definitions/:id(.:format)       check_list_definitions#update
+                             DELETE   /check_list_definitions/:id(.:format)       check_list_definitions#destroy
+                             POST     /check_list_definitions(.:format)           check_list_definitions#create
+  new_check_list_definitions GET      /check_list_definitions/new(.:format)       check_list_definitions#new
+ edit_check_list_definitions GET      /check_list_definitions/edit(.:format)      check_list_definitions#edit
+                             GET      /check_list_definitions(.:format)           check_list_definitions#show
+                             PATCH    /check_list_definitions(.:format)           check_list_definitions#update
+                             PUT      /check_list_definitions(.:format)           check_list_definitions#update
+                             DELETE   /check_list_definitions(.:format)           check_list_definitions#destroy
+            new_user_session GET      /users/sign_in(.:format)                    devise/sessions#new
+                user_session POST     /users/sign_in(.:format)                    devise/sessions#create
+        destroy_user_session DELETE   /users/sign_out(.:format)                   devise/sessions#destroy
+     user_omniauth_authorize GET|POST /users/auth/:provider(.:format)             authentications#passthru {:provider=>/google_oauth2|facebook|twitter/}
+      user_omniauth_callback GET|POST /users/auth/:action/callback(.:format)      authentications#(?-mix:google_oauth2|facebook|twitter)
+               user_password POST     /users/password(.:format)                   devise/passwords#create
+           new_user_password GET      /users/password/new(.:format)               devise/passwords#new
+          edit_user_password GET      /users/password/edit(.:format)              devise/passwords#edit
+                             PATCH    /users/password(.:format)                   devise/passwords#update
+                             PUT      /users/password(.:format)                   devise/passwords#update
+    cancel_user_registration GET      /users/cancel(.:format)                     registrations#cancel
+           user_registration POST     /users(.:format)                            registrations#create
+       new_user_registration GET      /users/sign_up(.:format)                    registrations#new
+      edit_user_registration GET      /users/edit(.:format)                       registrations#edit
+                             PATCH    /users(.:format)                            registrations#update
+                             PUT      /users(.:format)                            registrations#update
+                             DELETE   /users(.:format)                            registrations#destroy
+                        root GET      /                                           check_list_definitions#index
