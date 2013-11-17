@@ -18,6 +18,6 @@ Getitright::Application.routes.draw do
       omniauth_callbacks: "authentications"
     }
 
-  root 'static_pages#home'
+  root 'check_list_definitions#index'
 
 end

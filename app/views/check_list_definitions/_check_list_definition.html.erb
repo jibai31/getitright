@@ -10,12 +10,14 @@
       <br /><%= check_list_definition.description %>
     <% end %>
     <p>
-    <%= link_to 'Start',
-    start_check_list_definitions_path(check_list_definition),
-    method: :post,
-    class: "btn" %>
+    <% if user_signed_in? %>
+      <%= link_to 'Start',
+        start_check_list_definitions_path(check_list_definition),
+        method: :post,
+        class: "btn"
+      %>
     <% else %>
-    <%= link_to "Start", '#', class: "btn", 'data-toggle' => "modal", 'data-target' => "#signinModal" %>
+      <%= link_to "Start", '#', class: "btn", 'data-toggle' => "modal", 'data-target' => "#signinModal" %>
     <% end %>
     </p>
   </div>

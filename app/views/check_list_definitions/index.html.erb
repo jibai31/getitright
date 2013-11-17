@@ -1,22 +1,18 @@
 <div class="row">
+  <% if user_signed_in? %>
+    <div class="col-6 col-sm-6 col-lg-4">
+      <%= link_to 'Create new check list', new_check_list_definition_path, class: "btn btn-primary" %>
+    </div>
 
-	<% if user_signed_in? %>
-	<div class="col-6 col-sm-6 col-lg-4">
-		<%= link_to 'Create new check list', new_check_list_definition_path, class: "btn btn-primary" %>
-	</div>
+    <hr/>
 
-	<hr/>
+    <h1>My Check Lists</h1>
+    <%= render @check_list_definitions %>
 
-	<h1>My Check Lists</h1>
-	<%= render @check_list_definitions %>
-
-	<h1>Other public Check Lists</h1>
-	<%= render @other_public_check_list_definitions %>
-	<% else %>
-	<h1>All Check Lists</h1>
-	<!--%= render partial: 'check_list_definitions/check_list_definition', collection: @other_public_check_list_definitions  %-->
-	<%= render @check_list_definitions %>
-	<% end %>
-
+    <h1>Other public Check Lists</h1>
+    <%= render @other_public_check_list_definitions %>
+  <% else %>
+    <h1>All Check Lists</h1>
+    <%= render @check_list_definitions %>
+  <% end %>
 </div>
-
