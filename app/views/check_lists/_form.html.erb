@@ -14,20 +14,12 @@
 <% end %>
 
 <div class="field">
-	<%= f.label "Check List Name" %>
-	<br>
-	<%= @check_list.name %>
-</div>
-<div class="field">
-	<%= f.label "Check List Description" %>
-	<br>
 	<%= @check_list.description %>
 </div>
 
 <div>
-	Tasks
 	<div class="taskInputs">
-		<ul>
+		<ul class="list-unstyled">
 			<%= f.fields_for :tasks do |task| %>
 			<li>
 				<%= render :partial => "task_fields", :locals => { :f => task } %>
@@ -38,6 +30,7 @@
 </div>
 
 <div class="actions">
-	<%= f.submit %>
+	<%= f.submit "Save", class: "btn btn-default" %>
+	<%= f.submit "End", class: "btn btn-primary" %>
 </div>
 <% end %>
