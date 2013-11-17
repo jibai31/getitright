@@ -5,6 +5,8 @@ class RegistrationsController < Devise::RegistrationsController
     if session["devise.omniauth"]
       @user.apply_omniauth(session["devise.omniauth"])
       @user.valid?
+    else
+      @user.set_name_from_email unless @user.email.blank?
     end
   end
 end

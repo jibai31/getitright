@@ -37,7 +37,7 @@ class CheckListDefinitionsController < ApplicationController
 
     respond_to do |format|
       if @check_list_definition.save
-        format.html { redirect_to @check_list_definition, notice: 'Check list definition was successfully created.' }
+        format.html { redirect_to check_list_definitions_path, notice: 'Check list definition was successfully created.' }
         format.json { render action: 'show', status: :created, location: @check_list_definition }
       else
         format.html { render action: 'new' }
@@ -49,7 +49,7 @@ class CheckListDefinitionsController < ApplicationController
   def update
     respond_to do |format|
       if @check_list_definition.update(check_list_definition_params)
-        format.html { redirect_to @check_list_definition, notice: 'Check list definition was successfully updated.' }
+        format.html { redirect_to check_list_definitions_path, notice: 'Check list definition was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
