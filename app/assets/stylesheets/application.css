@@ -10,6 +10,6 @@
  *
  *= require_self
  *= require navbar
- *= require bootstrap.min
- *= require_tree ./all
+ *= require bootstrap
+ *= require_tree .
  */
