@@ -1,17 +1,6 @@
 class CheckListDefinitionsController < ApplicationController
-
   before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy, :start]
   
-  
-  def check_list_factory
-    unless @check_list_factory 
-      @check_list_factory = CheckListFactory.new
-    end
-    @check_list_factory
-  end 
-
-  # GET /check_list_definitions
-  # GET /check_list_definitions.json
   def index
     if user_signed_in?
       @check_list_definitions = current_user.check_list_definitions
@@ -34,7 +23,6 @@ class CheckListDefinitionsController < ApplicationController
 
   def create
     @check_list_definition = current_user.check_list_definitions.build(check_list_definition_params)
-    @check_list_definition.user = current_user
 
     respond_to do |format|
       if @check_list_definition.save
@@ -59,26 +47,14 @@ class CheckListDefinitionsController < ApplicationController
     end
   end
 
-  # GET /check_list_definitions/1
-  # GET /check_list_definitions/1.json
   def start
-    if user_signed_in?
-      @check_list = check_list_factory.create(@check_list_definition, current_user)
-      respond_to do |format|
-        format.html { redirect_to edit_check_list_url(@check_list) }
-        format.json { head :no_content }
-      end
-    else
+    @check_list = check_list_factory.create(@check_list_definition, current_user)
     respond_to do |format|
-        format.html { redirect_to new_user_session_path }
-        format.json { head :no_content }
-      end
-
+      format.html { redirect_to edit_check_list_url(@check_list) }
+      format.json { head :no_content }
     end
   end
 
-  # DELETE /check_list_definitions/1
-  # DELETE /check_list_definitions/1.json
   def destroy
     @check_list_definition.destroy
     respond_to do |format|
@@ -103,4 +79,9 @@ class CheckListDefinitionsController < ApplicationController
                   task_definitions_attributes: [:id, :text, :step]
                  )
   end
+
+  def check_list_factory
+    @check_list_factory ||= CheckListFactory.new
+  end 
+
 end

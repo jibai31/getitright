@@ -6,24 +6,36 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
 AddUserRefToCheckListDefinitions	db/migrate/20131116191958_add_user_ref_to_check_list_definitions.rb	/^class AddUserRefToCheckListDefinitions < ActiveRecord::Migration$/;"	c
+AllFiles	coverage/index.html	/^  <a name="AllFiles"><\/a>$/;"	a
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Getitright
 ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
 ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
 Authentication	app/models/authentication.rb	/^class Authentication < ActiveRecord::Base$/;"	c
 AuthenticationsController	app/controllers/authentications_controller.rb	/^class AuthenticationsController < Devise::OmniauthCallbacksController$/;"	c
+CapybaraDriverRegistrar	spec/capybara_remote.rb	/^class CapybaraDriverRegistrar$/;"	c
+CheckList	app/models/check_list.rb	/^class CheckList < ActiveRecord::Base$/;"	c
 CheckListDefinition	app/models/check_list_definition.rb	/^class CheckListDefinition < ActiveRecord::Base$/;"	c
 CheckListDefinitionsController	app/controllers/check_list_definitions_controller.rb	/^class CheckListDefinitionsController < ApplicationController$/;"	c
 CheckListDefinitionsHelper	app/helpers/check_list_definitions_helper.rb	/^module CheckListDefinitionsHelper$/;"	m
+CheckListDefinitionsMacros	spec/support/check_list_definitions_macros.rb	/^module CheckListDefinitionsMacros$/;"	m
+CheckListFactory	app/models/check_list_factory.rb	/^class CheckListFactory$/;"	c
+CheckListsController	app/controllers/check_lists_controller.rb	/^class CheckListsController < ApplicationController$/;"	c
+CheckListsHelper	app/helpers/check_lists_helper.rb	/^module CheckListsHelper$/;"	m
 CreateAuthentications	db/migrate/20131116141327_create_authentications.rb	/^class CreateAuthentications < ActiveRecord::Migration$/;"	c
 CreateCheckListDefinitions	db/migrate/20131116162210_create_check_list_definitions.rb	/^class CreateCheckListDefinitions < ActiveRecord::Migration$/;"	c
+CreateCheckLists	db/migrate/20131116200330_create_check_lists.rb	/^class CreateCheckLists < ActiveRecord::Migration$/;"	c
 CreateTaskDefinitions	db/migrate/20131116174130_create_task_definitions.rb	/^class CreateTaskDefinitions < ActiveRecord::Migration$/;"	c
+CreateTasks	db/migrate/20131116223835_create_tasks.rb	/^class CreateTasks < ActiveRecord::Migration$/;"	c
 DeviseCreateUsers	db/migrate/20131116141231_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration$/;"	c
 Getitright	config/application.rb	/^module Getitright$/;"	m
 RegistrationsController	app/controllers/registrations_controller.rb	/^class RegistrationsController < Devise::RegistrationsController$/;"	c
 SessionMacros	spec/support/session_macros.rb	/^module SessionMacros$/;"	m
 StaticPagesController	app/controllers/static_pages_controller.rb	/^class StaticPagesController < ApplicationController$/;"	c
+Task	app/models/task.rb	/^class Task < ActiveRecord::Base$/;"	c
 TaskDefinition	app/models/task_definition.rb	/^class TaskDefinition < ActiveRecord::Base$/;"	c
 TaskDefinitionsController	app/controllers/task_definitions_controller.rb	/^class TaskDefinitionsController < ApplicationController$/;"	c
+TasksController	app/controllers/tasks_controller.rb	/^class TasksController < ApplicationController$/;"	c
+TasksHelper	app/helpers/tasks_helper.rb	/^module TasksHelper$/;"	m
 User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
 add_provider!	app/models/user.rb	/^  def add_provider!(auth)$/;"	f	class:User
 apply_omniauth	app/models/user.rb	/^  def apply_omniauth(auth)$/;"	f	class:User
@@ -33,37 +45,69 @@ change	db/migrate/20131116141327_create_authentications.rb	/^  def change$/;"	f	
 change	db/migrate/20131116162210_create_check_list_definitions.rb	/^  def change$/;"	f	class:CreateCheckListDefinitions
 change	db/migrate/20131116174130_create_task_definitions.rb	/^  def change$/;"	f	class:CreateTaskDefinitions
 change	db/migrate/20131116191958_add_user_ref_to_check_list_definitions.rb	/^  def change$/;"	f	class:AddUserRefToCheckListDefinitions
+change	db/migrate/20131116200330_create_check_lists.rb	/^  def change$/;"	f	class:CreateCheckLists
+change	db/migrate/20131116223835_create_tasks.rb	/^  def change$/;"	f	class:CreateTasks
 check_list_definition_params	app/controllers/check_list_definitions_controller.rb	/^  def check_list_definition_params$/;"	f	class:CheckListDefinitionsController
+check_list_factory	app/controllers/check_list_definitions_controller.rb	/^  def check_list_factory$/;"	f	class:CheckListDefinitionsController
+check_list_params	app/controllers/check_lists_controller.rb	/^    def check_list_params$/;"	f	class:CheckListsController
 create	app/controllers/check_list_definitions_controller.rb	/^  def create$/;"	f	class:CheckListDefinitionsController
+create	app/controllers/check_lists_controller.rb	/^  def create$/;"	f	class:CheckListsController
 create	app/controllers/task_definitions_controller.rb	/^  def create$/;"	f	class:TaskDefinitionsController
+create	app/controllers/tasks_controller.rb	/^  def create$/;"	f	class:TasksController
+create	app/models/check_list_factory.rb	/^  def create(check_list_definition,current_user)$/;"	f	class:CheckListFactory
+create_check_list_definition	spec/support/check_list_definitions_macros.rb	/^  def create_check_list_definition(name, description = nil, tasks = [])$/;"	f	class:CheckListDefinitionsMacros
 create_user	spec/support/session_macros.rb	/^  def create_user(email, password, name = nil)$/;"	f	class:SessionMacros
+create_user_and_sign_in	spec/support/session_macros.rb	/^  def create_user_and_sign_in$/;"	f	class:SessionMacros
 create_user_with_provider	spec/support/session_macros.rb	/^  def create_user_with_provider(email, provider, name = nil)$/;"	f	class:SessionMacros
+description	app/models/check_list.rb	/^  def description$/;"	f	class:CheckList
 destroy	app/controllers/check_list_definitions_controller.rb	/^  def destroy$/;"	f	class:CheckListDefinitionsController
+destroy	app/controllers/check_lists_controller.rb	/^  def destroy$/;"	f	class:CheckListsController
 destroy	app/controllers/task_definitions_controller.rb	/^  def destroy$/;"	f	class:TaskDefinitionsController
+destroy	app/controllers/tasks_controller.rb	/^  def destroy$/;"	f	class:TasksController
 edit	app/controllers/check_list_definitions_controller.rb	/^  def edit$/;"	f	class:CheckListDefinitionsController
+edit	app/controllers/check_lists_controller.rb	/^  def edit$/;"	f	class:CheckListsController
 edit	app/controllers/task_definitions_controller.rb	/^  def edit$/;"	f	class:TaskDefinitionsController
+edit	app/controllers/tasks_controller.rb	/^  def edit$/;"	f	class:TasksController
 facebook	app/controllers/authentications_controller.rb	/^  def facebook$/;"	f	class:AuthenticationsController
 google_oauth2	app/controllers/authentications_controller.rb	/^  def google_oauth2$/;"	f	class:AuthenticationsController
 home	app/controllers/static_pages_controller.rb	/^  def home$/;"	f	class:StaticPagesController
 index	app/controllers/check_list_definitions_controller.rb	/^  def index$/;"	f	class:CheckListDefinitionsController
+index	app/controllers/check_lists_controller.rb	/^  def index$/;"	f	class:CheckListsController
 index	app/controllers/task_definitions_controller.rb	/^  def index$/;"	f	class:TaskDefinitionsController
+index	app/controllers/tasks_controller.rb	/^  def index$/;"	f	class:TasksController
 new	app/controllers/check_list_definitions_controller.rb	/^  def new$/;"	f	class:CheckListDefinitionsController
+new	app/controllers/check_lists_controller.rb	/^  def new$/;"	f	class:CheckListsController
 new	app/controllers/task_definitions_controller.rb	/^  def new$/;"	f	class:TaskDefinitionsController
+new	app/controllers/tasks_controller.rb	/^  def new$/;"	f	class:TasksController
 page_should_display_sign_in_error	spec/support/session_macros.rb	/^  def page_should_display_sign_in_error$/;"	f	class:SessionMacros
 password_required?	app/models/user.rb	/^  def password_required?$/;"	f	class:User
+register_selenium_local_driver	spec/capybara_remote.rb	/^  def self.register_selenium_local_driver(browser)$/;"	F	class:CapybaraDriverRegistrar
+register_selenium_remote_driver	spec/capybara_remote.rb	/^  def self.register_selenium_remote_driver(browser)$/;"	F
 secure_token	config/initializers/secret_token.rb	/^def secure_token$/;"	f
+selenium_remote?	spec/capybara_remote.rb	/^  def selenium_remote?$/;"	f
+set_check_list	app/controllers/check_lists_controller.rb	/^    def set_check_list$/;"	f	class:CheckListsController
 set_check_list_definition	app/controllers/check_list_definitions_controller.rb	/^  def set_check_list_definition$/;"	f	class:CheckListDefinitionsController
+set_name_from_email	app/models/user.rb	/^  def set_name_from_email$/;"	f	class:User
+set_task	app/controllers/tasks_controller.rb	/^    def set_task$/;"	f	class:TasksController
 set_task_definition	app/controllers/task_definitions_controller.rb	/^    def set_task_definition$/;"	f	class:TaskDefinitionsController
 show	app/controllers/check_list_definitions_controller.rb	/^  def show$/;"	f	class:CheckListDefinitionsController
+show	app/controllers/check_lists_controller.rb	/^  def show$/;"	f	class:CheckListsController
 show	app/controllers/task_definitions_controller.rb	/^  def show$/;"	f	class:TaskDefinitionsController
+show	app/controllers/tasks_controller.rb	/^  def show$/;"	f	class:TasksController
 sign_in_with	spec/support/session_macros.rb	/^  def sign_in_with(email, password)$/;"	f	class:SessionMacros
 sign_in_with_provider	spec/support/session_macros.rb	/^  def sign_in_with_provider(provider)$/;"	f	class:SessionMacros
 sign_up_with	spec/support/session_macros.rb	/^  def sign_up_with(email, password, password_confirmation = nil)$/;"	f	class:SessionMacros
+smart_text	app/models/task.rb	/^  def smart_text$/;"	f	class:Task
+start	app/controllers/check_list_definitions_controller.rb	/^  def start$/;"	f	class:CheckListDefinitionsController
 task_definition_params	app/controllers/task_definitions_controller.rb	/^    def task_definition_params$/;"	f	class:TaskDefinitionsController
+task_params	app/controllers/tasks_controller.rb	/^    def task_params$/;"	f	class:TasksController
+text	app/models/task.rb	/^  def text$/;"	f	class:Task
 try_sign_in_user	app/controllers/authentications_controller.rb	/^  def try_sign_in_user$/;"	f	class:AuthenticationsController
 twitter	app/controllers/authentications_controller.rb	/^  def twitter$/;"	f	class:AuthenticationsController
 update	app/controllers/check_list_definitions_controller.rb	/^  def update$/;"	f	class:CheckListDefinitionsController
+update	app/controllers/check_lists_controller.rb	/^  def update$/;"	f	class:CheckListsController
 update	app/controllers/task_definitions_controller.rb	/^  def update$/;"	f	class:TaskDefinitionsController
+update	app/controllers/tasks_controller.rb	/^  def update$/;"	f	class:TasksController
 update_with_password	app/models/user.rb	/^  def update_with_password(params, *options)$/;"	f	class:User
 user_should_be_signed_in	spec/support/session_macros.rb	/^  def user_should_be_signed_in$/;"	f	class:SessionMacros
 user_should_be_signed_in_as	spec/support/session_macros.rb	/^  def user_should_be_signed_in_as name$/;"	f	class:SessionMacros

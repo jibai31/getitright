@@ -2,6 +2,13 @@ require 'spec_helper'
 
 feature 'Visitor signs in' do
 
+  scenario 'with email and password' do
+    create_user 'john.doe@example.com', 'password', 'John Smith'
+    sign_in_with 'john.doe@example.com', 'password'
+
+    user_should_be_signed_in_as 'John Smith'
+  end
+
   scenario 'with Google' do
     create_user 'john.doe@example.com', 'password', 'John Smith'
     sign_in_with_provider 'Google'
