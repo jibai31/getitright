@@ -26,4 +26,8 @@ module CheckListDefinitionsMacros
   def tasks_should_be_in_right_order(tasks)
     expect(page.text).to match /#{tasks.join(".*")}/
   end
+
+  def user_should_be_on_check_lists_page
+    expect(page).to have_selector 'h1', text: "My check lists"
+  end
 end

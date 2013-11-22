@@ -1,18 +1,6 @@
-<div class="col-6 col-sm-6 col-lg-4" id="checkListDefinitions">
+<div class="col-sm-6 col-md-4 check-list-definition">
   <strong><%= link_to check_list_definition.name, check_list_definition %></strong>
   <% unless check_list_definition.description.blank? %>
     <br /><%= check_list_definition.description %>
   <% end %>
-  <p>
-  <% if user_signed_in? %>
-    <%= link_to start_check_list_definitions_path(check_list_definition),
-      method: :post, class: "btn btn-default" do %>
-      <span class="glyphicon glyphicon-play"> Start</span>
-    <% end %>
-  <% else %>
-    <%= link_to '#', class: "btn btn-default", 'data-toggle' => "modal", 'data-target' => "#signinModal" do %>
-      <span class="glyphicon glyphicon-play"> Start</span>
-    <% end %>
-  <% end %>
-  </p>
 </div>

@@ -19,12 +19,12 @@
   <!--%= link_to 'Edit', edit_check_list_definition_path(@check_list_definition), class: "btn btn-primary" %-->
   <% if user_signed_in? %>
     <%= link_to start_check_list_definitions_path(@check_list_definition),
-      method: :post, class: "btn btn-default" do %>
-      <span class="glyphicon glyphicon-play"> Start</span>
+      method: :post, class: "btn btn-primary" do %>
+      <span class="glyphicon glyphicon-play"></span> Start
     <% end %>
   <% else %>
-    <%= link_to '#', class: "btn btn-default", 'data-toggle' => "modal", 'data-target' => "#signinModal" do %>
-      <span class="glyphicon glyphicon-play"> Start</span>
+    <%= link_to '#', class: "btn btn-primary", 'data-toggle' => "modal", 'data-target' => "#signinModal" do %>
+      <span class="glyphicon glyphicon-play"></span> Start
     <% end %>
   <% end %>
 </div>

@@ -7,12 +7,13 @@ feature 'User creates a check list definition' do
 
   scenario 'redirects to the list of check lists' do
     create_check_list_definition "Test list"
-     expect(page).to have_selector 'h1', text: "My Check Lists"
+
+    user_should_be_on_check_lists_page
   end
 
   scenario 'with name, description and tasks', :js => true do
     create_check_list_definition "Test list", "This is a check list for test", ["Step 1", "Step 2", "Step 3"]
-    within '#checkListDefinitions' do
+    within '.check-list-definition' do
       click_link "Test list"
     end
 
