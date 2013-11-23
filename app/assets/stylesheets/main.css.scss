@@ -1,1 +1,7 @@
+// sticky footer 
+$footer-width: 40px;
+html, body{height: 100%;}
+#wrap{min-height: 100%; height: auto; margin: 0 auto (-$footer-width); padding: 0 0 $footer-width;}
+#footer{height: $footer-width;}
+
 .check-list-definition{padding: 20px;}
