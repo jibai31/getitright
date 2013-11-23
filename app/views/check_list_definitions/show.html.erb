@@ -10,7 +10,9 @@
 <p>
   <ul class="list-unstyled">
     <% @check_list_definition.task_definitions.each do |task_definition| %>
-      <li><%= task_definition.text %></li>
+      <li class="task-definition">
+        <span class="glyphicon glyphicon-ok"></span> <%= task_definition.text %>
+      </li>
     <% end %>
   </ul>
 </p>
