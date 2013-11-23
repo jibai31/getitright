@@ -1,14 +1,14 @@
 <p><strong>Sign in with one of those services:</strong></p>
 
-<%= link_to user_omniauth_authorize_path(:google_oauth2) do %>
+<%= link_to user_omniauth_authorize_path(:google_oauth2), class: 'social-signin-link' do %>
   <%= image_tag('google_64.png', size: "64x64", alt: "Google") %>
   Google
 <% end %>
-<%= link_to user_omniauth_authorize_path(:facebook) do %>
+<%= link_to user_omniauth_authorize_path(:facebook), class: 'social-signin-link' do %>
   <%= image_tag('facebook_64.png', size: "64x64", alt: "Facebook") %>
   Facebook
 <% end %>
-<%= link_to user_omniauth_authorize_path(:twitter) do %>
+<%= link_to user_omniauth_authorize_path(:twitter), class: 'social-signin-link' do %>
   <%= image_tag('twitter_64.png', size: "64x64", alt: "Twitter") %>
   Twitter
 <% end %>
