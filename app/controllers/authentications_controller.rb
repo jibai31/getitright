@@ -7,12 +7,12 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
     if authentication
       # The user has already authenticated with this provider
       flash.notice = "Bienvenue !"
-      sign_in_and_redirect authentication.user
+      sign_in_and_remember authentication.user
     elsif user
       # The user is currently signed in, but with another provider
       user.add_provider!(omni)
       flash.notice = "Bienvenue !"
-      sign_in_and_redirect user
+      sign_in_and_remember user
     else
       # No authenticated user, and unknown provider
       user = User.new
@@ -20,7 +20,7 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
 
       if user.save
         flash.notice = "Bienvenue !"
-        sign_in_and_redirect user
+        sign_in_and_remember user
       else
         # User validation failed
         # The oauth info did not contain any email (eg, Twitter account)
@@ -31,6 +31,11 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
         redirect_to new_user_registration_path
       end
     end
+  end
+
+  def sign_in_and_remember(user)
+    user.remember_me = true
+    sign_in_and_redirect user
   end
 
   def google_oauth2
