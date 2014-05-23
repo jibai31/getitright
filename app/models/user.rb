@@ -48,6 +48,12 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    name
+    if name.present?
+      name
+    elsif email.present?
+      email.split('@')[0]
+    else
+      "user#{id}"
+    end
   end
 end
