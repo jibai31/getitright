@@ -1,6 +1,7 @@
 <div class="col-sm-6 col-md-4 check-list-definition">
-  <strong><%= link_to check_list_definition.name, check_list_definition %></strong>
+  <div><strong><%= link_to check_list_definition.name, check_list_definition %></strong></div>
+  <div class="small text-muted"><%= check_list_definition.user %></div>
   <% unless check_list_definition.description.blank? %>
-    <br /><%= check_list_definition.description %>
+    <p><%= check_list_definition.description %></p>
   <% end %>
 </div>
