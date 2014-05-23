@@ -1,7 +1,7 @@
 # SELENIUM_SERVER is the IP address or hostname of the system running Selenium
 # Server, this is used to determine where to connect to when using one of the
 # selenium_remote_* drivers
-SELENIUM_SERVER = "192.168.1.1"
+SELENIUM_SERVER = "192.168.1.25"
 
 # SELENIUM_APP_HOST is the IP address or hostname of this system (where the
 # tests run against) as reachable for the SELENIUM_SERVER. This is used to set

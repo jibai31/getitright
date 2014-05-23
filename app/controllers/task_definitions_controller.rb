@@ -1,28 +1,20 @@
 class TaskDefinitionsController < ApplicationController
   before_action :set_task_definition, only: [:show, :edit, :update, :destroy]
 
-  # GET /task_definitions
-  # GET /task_definitions.json
   def index
     @task_definitions = TaskDefinition.all
   end
 
-  # GET /task_definitions/1
-  # GET /task_definitions/1.json
   def show
   end
 
-  # GET /task_definitions/new
   def new
     @task_definition = TaskDefinition.new
   end
 
-  # GET /task_definitions/1/edit
   def edit
   end
 
-  # POST /task_definitions
-  # POST /task_definitions.json
   def create
     @task_definition = TaskDefinition.new(task_definition_params)
 
@@ -37,8 +29,6 @@ class TaskDefinitionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /task_definitions/1
-  # PATCH/PUT /task_definitions/1.json
   def update
     respond_to do |format|
       if @task_definition.update(task_definition_params)
@@ -51,8 +41,6 @@ class TaskDefinitionsController < ApplicationController
     end
   end
 
-  # DELETE /task_definitions/1
-  # DELETE /task_definitions/1.json
   def destroy
     @task_definition.destroy
     respond_to do |format|

@@ -3,4 +3,5 @@ class CheckListDefinition < ActiveRecord::Base
   accepts_nested_attributes_for :task_definitions
   belongs_to :user
   has_many :check_lists
+  validates_presence_of :name
 end

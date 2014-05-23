@@ -24,7 +24,7 @@ OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
 
 FactoryGirl.define do
   factory :user do
-    email     "john.doe@example.com"
+    sequence(:email) { |n| "person#{n}@example.com" }
     name      "John Doe"
     password  "password"
 
@@ -41,6 +41,11 @@ FactoryGirl.define do
   factory :authentication do
     provider "provider"
     uid "12345"
+    user
+  end
+
+  factory :check_list_definition do
+    sequence(:name) { |n| "List-#{n}" }
     user
   end
 

@@ -6,7 +6,7 @@ feature 'User creates a check list definition' do
   end
 
   scenario 'redirects to the list of check lists' do
-    create_check_list_definition "Test list"
+    create_check_list_definition "Test list", "", ["Step 1"]
 
     user_should_be_on_check_lists_page
   end
