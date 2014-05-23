@@ -1,12 +1,13 @@
 class CheckListDefinitionsController < ApplicationController
   before_action :set_check_list_definition, only: [:show, :edit, :update, :destroy, :start]
-  
+
   def index
     if user_signed_in?
-      @check_list_definitions = current_user.check_list_definitions
-      @other_public_check_list_definitions = CheckListDefinition.where("user_id <> ?", current_user)
+      check_lists = CheckListDefinition.ordered
+      @check_list_definitions = current_user.check_list_definitions.ordered
+      @other_public_check_list_definitions = CheckListDefinition.ordered.where("user_id <> ?", current_user)
     else
-      @check_list_definitions = CheckListDefinition.all
+      @check_list_definitions = CheckListDefinition.ordered
     end
   end
 

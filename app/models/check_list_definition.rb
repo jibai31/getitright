@@ -4,4 +4,6 @@ class CheckListDefinition < ActiveRecord::Base
   belongs_to :user
   has_many :check_lists
   validates_presence_of :name
+
+  scope :ordered, -> { order(:created_at).includes(:user) }
 end
