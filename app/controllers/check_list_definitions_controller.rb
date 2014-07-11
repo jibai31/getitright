@@ -48,6 +48,7 @@ class CheckListDefinitionsController < ApplicationController
     end
   end
 
+  # fork la checklist pour le nouvel utilisateur
   def start
     @check_list = check_list_factory.create(@check_list_definition, current_user)
     respond_to do |format|

@@ -44,9 +44,18 @@ FactoryGirl.define do
     user
   end
 
+  factory :task_definition do
+    sequence(:text) { |n| "task-#{n}" }
+    sequence(:step) { |n| "step-#{n}" }
+  end
+
   factory :check_list_definition do
     sequence(:name) { |n| "List-#{n}" }
     user
+
+    after(:create) do |check_list_definition|
+      check_list_definition.task_definitions << create_list(:task_definition, 5)
+    end
   end
 
 end
