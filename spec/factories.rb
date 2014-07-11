@@ -46,7 +46,7 @@ FactoryGirl.define do
 
   factory :task_definition do
     sequence(:text) { |n| "task-#{n}" }
-    sequence(:step) { |n| "step-#{n}" }
+    sequence(:step) { |n| n }
   end
 
   factory :check_list_definition do

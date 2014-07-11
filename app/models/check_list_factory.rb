@@ -9,6 +9,7 @@ class CheckListFactory
       t = cl.tasks.build
       t.task_definition = task_definition
       t.step = task_definition.step
+      t.text = task_definition.text
       t.done = false
     end
     cl.save
