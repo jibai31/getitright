@@ -11,7 +11,8 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Check lists', check_list_definitions_path %></li>
+        <li><%= link_to 'Checklists', check_list_definitions_path %></li>
+        <li><%= link_to 'Started Checklists', check_lists_path(status: "started") %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

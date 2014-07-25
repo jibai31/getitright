@@ -4,7 +4,11 @@ class CheckListsController < ApplicationController
   # GET /check_lists
   # GET /check_lists.json
   def index
-    @check_lists = CheckList.all
+    if (params[:status] == ("started"))
+      @check_lists = CheckList.where(status: params[:status])
+    else
+      @check_lists = CheckList.all
+    end
   end
 
   # GET /check_lists/1

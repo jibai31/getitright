@@ -14,6 +14,7 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'aasm'
 
 group :production do
   gem 'rails_12factor', '0.0.2'

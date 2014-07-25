@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711150202) do
+ActiveRecord::Schema.define(version: 20140725140514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +43,12 @@ ActiveRecord::Schema.define(version: 20140711150202) do
     t.integer  "check_list_definition_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
 
   add_index "check_lists", ["check_list_definition_id"], name: "index_check_lists_on_check_list_definition_id", using: :btree
   add_index "check_lists", ["name"], name: "index_check_lists_on_name", using: :btree
+  add_index "check_lists", ["status"], name: "index_check_lists_on_status", using: :btree
   add_index "check_lists", ["user_id"], name: "index_check_lists_on_user_id", using: :btree
 
   create_table "task_definitions", force: true do |t|
