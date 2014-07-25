@@ -58,4 +58,10 @@ FactoryGirl.define do
     end
   end
 
+  factory :check_list do
+    sequence(:name) { |n| "List-execution-#{n}" }
+    user
+    status "started"
+  end
+
 end

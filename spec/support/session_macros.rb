@@ -11,7 +11,7 @@ module SessionMacros
   end
 
   def create_user_and_sign_in
-    create_user 'jane.doe@example.com', 'password', 'Jane Doe'
+    @current_user = create_user 'jane.doe@example.com', 'password', 'Jane Doe'
     sign_in_with 'jane.doe@example.com', 'password'
   end
 
