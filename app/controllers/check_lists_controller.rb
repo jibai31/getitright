@@ -1,11 +1,11 @@
 class CheckListsController < ApplicationController
-  before_action :set_check_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_check_list, only: [:show, :edit, :update, :destroy, :done]
 
   # GET /check_lists
   # GET /check_lists.json
   def index
     if (params[:status] == ("started"))
-      @check_lists = CheckList.where(status: params[:status])
+      @check_lists = CheckList.where(status: params[:status], user: current_user)
     else
       @check_lists = CheckList.all
     end
@@ -32,7 +32,7 @@ class CheckListsController < ApplicationController
 
     respond_to do |format|
       if @check_list.save
-        format.html { redirect_to @check_list, notice: 'Check list was successfully created.' }
+        format.html { redirect_to check_lists_path(status: "started"), notice: 'Check list was successfully created.' }
         format.json { render action: 'show', status: :created, location: @check_list }
       else
         format.html { render action: 'new' }
@@ -46,7 +46,7 @@ class CheckListsController < ApplicationController
   def update
     respond_to do |format|
       if @check_list.update(check_list_params)
-        format.html { redirect_to @check_list, notice: 'Check list was successfully updated.' }
+        format.html { redirect_to check_lists_path(status: "started"), notice: 'Check list was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -63,6 +63,12 @@ class CheckListsController < ApplicationController
       format.html { redirect_to check_lists_url }
       format.json { head :no_content }
     end
+  end
+
+  def done
+    @check_list.status = 'done'
+    format.html { redirect_to check_lists_url, notice: 'Check list is now completed' }
+    format.json { head :no_content }  
   end
 
   private

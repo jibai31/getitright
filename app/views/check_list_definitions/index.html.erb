@@ -1,21 +1,14 @@
 <% if user_signed_in? %>
-  <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <%= link_to 'Create new check list', new_check_list_definition_path, class: "btn btn-primary" %>
-    </div>
-  </div>
-
-  <h1>My check lists</h1>
+  <h1>My checklists</h1>
   <div class="row">
     <%= render @check_list_definitions %>
   </div>
 
-  <h1>Other public check lists</h1>
+  <h1>Public checklists</h1>
   <div class="row">
     <%= render @other_public_check_list_definitions %>
   </div>
 <% else %>
-  <h1>All check lists</h1>
   <div class="row">
     <%= render @check_list_definitions %>
   </div>

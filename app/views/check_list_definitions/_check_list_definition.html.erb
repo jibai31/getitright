@@ -1,7 +1,17 @@
 <div class="col-sm-6 col-md-4 check-list-definition">
-  <div><strong><%= link_to check_list_definition.name, check_list_definition %></strong></div>
-  <div class="small text-muted"><%= check_list_definition.user %></div>
+  <div><strong><%= link_to check_list_definition.name, check_list_definition %></strong> by <%= check_list_definition.user %></div>
   <% unless check_list_definition.description.blank? %>
     <p><%= check_list_definition.description %></p>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= link_to start_check_list_definitions_path(check_list_definition),
+      method: :post, class: "btn btn-primary" do %>
+      <span class="glyphicon glyphicon-play"></span> Start
+    <% end %>
+  <% else %>
+    <%= link_to '#', class: "btn btn-primary", 'data-toggle' => "modal", 'data-target' => "#signinModal" do %>
+      <span class="glyphicon glyphicon-play"></span> Start
+    <% end %>
   <% end %>
 </div>

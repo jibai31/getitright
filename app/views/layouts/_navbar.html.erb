@@ -10,12 +10,12 @@
       <%= link_to image_tag('logo.png', alt: "Get it right"), root_path, class: "navbar-brand" %>
     </div>
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'Checklists', check_list_definitions_path %></li>
-        <li><%= link_to 'Started Checklists', check_lists_path(status: "started") %></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Create Checklist', new_check_list_definition_path %></li><li>
+          <li><%= link_to 'My Started Checklists', check_lists_path(status: "started") %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
           <li>
           <%= link_to "#", class: "navbar-avatar" do %>
             <%= image_tag current_user.avatar %>
@@ -30,9 +30,10 @@
           </li>
         </ul>
       <% else %>
-        <li><%= link_to "Sign in / sign up", '#', 'data-toggle' => "modal", 'data-target' => "#signinModal" %></li>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Sign in / sign up", '#', 'data-toggle' => "modal", 'data-target' => "#signinModal" %></li>
+        </ul>
       <% end %>
-    </ul>
   </div>
 </div>
 </div>
